@@ -254,7 +254,7 @@ function Stat({ label, value, tone }: { label: string; value: string; tone?: 'go
       <div className="text-[10px] uppercase tracking-wider text-muted-foreground">{label}</div>
       <div
         className={`font-mono text-sm font-semibold ${
-          tone === 'good' ? 'text-green-400' : tone === 'warn' ? 'text-yellow-400' : ''
+          tone === 'good' ? 'text-foreground' : tone === 'warn' ? 'text-muted-foreground' : ''
         }`}
       >
         {value}

@@ -133,8 +133,8 @@ export function NetworkCanvas({ layers, weights, activations, running }: Props) 
         if (!a || !b) continue
         const x = a.x + (b.x - a.x) * p.t
         const y = a.y + (b.y - a.y) * p.t
-        ctx.fillStyle = '#e9d5ff'
-        ctx.shadowColor = '#a855f7'
+        ctx.fillStyle = '#ffffff'
+        ctx.shadowColor = '#ffffff'
         ctx.shadowBlur = 8
         ctx.beginPath()
         ctx.arc(x, y, 3, 0, Math.PI * 2)
@@ -152,13 +152,22 @@ export function NetworkCanvas({ layers, weights, activations, running }: Props) 
         for (let i = 0; i < cols[l].length; i++) {
           const { x, y } = cols[l][i]
           const act = s.activations?.[l]?.[i]
-          let fill = '#1e1b2e'
-          let stroke = '#8b5cf6'
+          let fill = '#141414'
+          let stroke = '#fafafa'
           if (act !== undefined) {
+            // Monocromático: ativação positiva clareia em direção ao branco,
+            // negativa fica nos cinzas escuros. Azul/laranja ficam reservados
+            // para pesos e classes dos dados.
             const v = Math.max(-1, Math.min(1, act))
-            const intensity = Math.round(Math.abs(v) * 200)
-            fill = v >= 0 ? `rgb(${40 + intensity * 0.35},${30 + intensity * 0.2},${60 + intensity})` : `rgb(${60 + intensity},${40 + intensity * 0.35},${30 + intensity * 0.2})`
-            stroke = v >= 0 ? '#a78bfa' : '#fdba74'
+            if (v >= 0) {
+              const c = Math.round(20 + 235 * v)
+              fill = `rgb(${c},${c},${c})`
+              stroke = '#fafafa'
+            } else {
+              const c = Math.round(20 + 90 * -v)
+              fill = `rgb(${c},${c},${c})`
+              stroke = '#a1a1aa'
+            }
           }
           ctx.fillStyle = fill
           ctx.strokeStyle = stroke
@@ -167,7 +176,7 @@ export function NetworkCanvas({ layers, weights, activations, running }: Props) 
           ctx.arc(x, y, 13, 0, Math.PI * 2)
           ctx.fill()
           ctx.stroke()
-          ctx.fillStyle = '#e2e8f0'
+          ctx.fillStyle = '#f4f4f5'
           ctx.font = '600 9px system-ui'
           ctx.textAlign = 'center'
           ctx.textBaseline = 'middle'

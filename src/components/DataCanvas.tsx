@@ -77,7 +77,7 @@ export function DataCanvas({ points, predict, version }: Props) {
       const toPx = (v: number) => ((v + 6) / 12) * S
 
       // Grade
-      ctx.strokeStyle = 'rgba(148,163,184,0.14)'
+      ctx.strokeStyle = 'rgba(161,161,170,0.14)'
       ctx.lineWidth = 1
       for (let g = -6; g <= 6; g += 2) {
         ctx.beginPath()

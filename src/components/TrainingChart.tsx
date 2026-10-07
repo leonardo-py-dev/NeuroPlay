@@ -20,14 +20,14 @@ export function TrainingChart({ history }: { history: LossPoint[] }) {
         <LineChart data={data} margin={{ top: 8, right: 12, bottom: 0, left: -18 }}>
           <XAxis
             dataKey="epoch"
-            tick={{ fill: '#94a3b8', fontSize: 10 }}
+            tick={{ fill: '#a1a1aa', fontSize: 10 }}
             tickLine={false}
-            axisLine={{ stroke: '#334155' }}
+            axisLine={{ stroke: '#27272a' }}
             tickFormatter={(v: number) => `${v}`}
-            label={{ value: 'época', position: 'insideBottomRight', fill: '#64748b', fontSize: 10 }}
+            label={{ value: 'época', position: 'insideBottomRight', fill: '#71717a', fontSize: 10 }}
           />
           <YAxis
-            tick={{ fill: '#94a3b8', fontSize: 10 }}
+            tick={{ fill: '#a1a1aa', fontSize: 10 }}
             tickLine={false}
             axisLine={false}
             domain={['auto', 'auto']}
@@ -35,8 +35,8 @@ export function TrainingChart({ history }: { history: LossPoint[] }) {
           />
           <Tooltip
             contentStyle={{
-              background: '#1e293b',
-              border: '1px solid #334155',
+              background: '#101012',
+              border: '1px solid #27272a',
               borderRadius: 8,
               fontSize: 12,
             }}
@@ -46,7 +46,7 @@ export function TrainingChart({ history }: { history: LossPoint[] }) {
           <Line
             type="monotone"
             dataKey="loss"
-            stroke="#a78bfa"
+            stroke="#fafafa"
             strokeWidth={2}
             dot={false}
             isAnimationActive={false}

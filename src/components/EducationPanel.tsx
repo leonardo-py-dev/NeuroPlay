@@ -9,7 +9,7 @@ function TermChip({ id }: { id: string }) {
   return (
     <Tooltip>
       <TooltipTrigger asChild>
-        <button className="rounded-full border border-primary/40 bg-primary/10 px-2.5 py-1 text-xs text-primary-foreground transition-colors hover:bg-primary/25">
+        <button className="rounded-full border border-primary/40 bg-primary/10 px-2.5 py-1 text-xs text-foreground transition-colors hover:bg-primary/25">
           {t.term}
         </button>
       </TooltipTrigger>
