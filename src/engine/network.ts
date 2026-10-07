@@ -7,7 +7,7 @@ export interface ForwardCache {
   zs: number[][]
 }
 
-function activate(name: ActivationName, z: number): number {
+export function activate(name: ActivationName, z: number): number {
   switch (name) {
     case 'tanh':
       return Math.tanh(z)
@@ -18,7 +18,7 @@ function activate(name: ActivationName, z: number): number {
   }
 }
 
-function activateDerivative(name: ActivationName, z: number, a: number): number {
+export function activateDerivative(name: ActivationName, z: number, a: number): number {
   switch (name) {
     case 'tanh':
       return 1 - a * a
